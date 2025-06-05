@@ -5,6 +5,12 @@ import os
 import time
 import sys
 
+def calcnum():
+    print(Fore.BLUE + Style.BRIGHT + "Calculating numeric columns..." + Style.RESET_ALL)
+    print()
+    time.sleep(1)
+    print(Fore.BLUE + Style.BRIGHT + "Mock Claculated!" + Style.RESET_ALL)
+
 def dataHandling():
     print(Fore.GREEN + Style.BRIGHT + "What would you like to do with your data?" + Style.RESET_ALL)
     print()
@@ -12,10 +18,13 @@ def dataHandling():
     print()
     step = input(Fore.GREEN + Style.BRIGHT + "Select an option: " + Style.RESET_ALL)
 
-
-
     if step == "/end":
         sys.exit()
+    
+    elif step == "Calculate Numeric Columns" or step == "calculate numeric columns" or step == "calculate" or step == "1":
+        print()
+        calcnum()
+        
 
 
 
