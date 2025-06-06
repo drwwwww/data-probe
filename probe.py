@@ -4,6 +4,7 @@ from colorama import init, Fore, Back, Style
 import os
 import time
 import sys
+import calc
 
 def calcnum():
     print(Fore.BLUE + Style.BRIGHT + "----- Calculate Numeric Columns -----" + Style.RESET_ALL)
@@ -33,12 +34,7 @@ def calcnum():
         calcnum()
     
     else:
-        newCol = data[col].to_numpy
-        print()
-        print(Fore.BLUE + Style.BRIGHT + "What calculations would you like to do?" + Style.RESET_ALL)
-        print()
-        print(Fore.MAGENTA + Style.BRIGHT + "Mean" + "   Median" + "   Standard Deviation" + "   Find Minimum Value" + "   Find Maximum Value" + "   Count missing values" + Style.RESET_ALL)
-        print()
+        calc.calc(data, col)
 
 
 
