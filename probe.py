@@ -6,10 +6,43 @@ import time
 import sys
 
 def calcnum():
-    print(Fore.BLUE + Style.BRIGHT + "Calculating numeric columns..." + Style.RESET_ALL)
+    print(Fore.BLUE + Style.BRIGHT + "----- Calculate Numeric Columns -----" + Style.RESET_ALL)
     print()
-    time.sleep(1)
-    print(Fore.BLUE + Style.BRIGHT + "Mock Claculated!" + Style.RESET_ALL)
+    
+    for name in data.columns:
+        print(Fore.MAGENTA + Style.BRIGHT + name + Style.RESET_ALL)
+
+    print()
+    col = input(Fore.BLUE + Style.BRIGHT + "Which column would you like to calculate? (Only numerical data can be calculated): " + Style.RESET_ALL)
+
+    if col == "/end":
+        sys.exit()
+    
+    if col not in data.columns:
+        print()
+        print(Fore.RED + Style.BRIGHT + "Please Select a Valid Column" + Style.RESET_ALL)
+        print()
+        time.sleep(0.5)
+        calcnum()
+
+    elif data[col].dtype != "int64" and data[col].dtype != "float64":
+        print()
+        print(Fore.RED + Style.BRIGHT + "Please Select a Column With Numerical Data" + Style.RESET_ALL)
+        print()
+        time.sleep(0.5)
+        calcnum()
+    
+    else:
+        newCol = data[col].to_numpy
+        print()
+        print(Fore.BLUE + Style.BRIGHT + "What calculations would you like to do?" + Style.RESET_ALL)
+        print()
+        print(Fore.MAGENTA + Style.BRIGHT + "Mean" + "   Median" + "   Standard Deviation" + "   Find Minimum Value" + "   Find Maximum Value" + "   Count missing values" + Style.RESET_ALL)
+        print()
+
+
+
+
 
 def dataHandling():
     print(Fore.GREEN + Style.BRIGHT + "What would you like to do with your data?" + Style.RESET_ALL)
@@ -24,6 +57,13 @@ def dataHandling():
     elif step == "Calculate Numeric Columns" or step == "calculate numeric columns" or step == "calculate" or step == "1":
         print()
         calcnum()
+
+    else:
+        print()
+        print(Fore.RED + Style.BRIGHT + "Please Select a Given Option" + Style.RESET_ALL)
+        print()
+        time.sleep(0.5)
+        dataHandling()
         
 
 
@@ -64,11 +104,13 @@ def main():
     else: # Main actual working part of the code
         try:
             print()
+            global data
             data = pd.read_csv(file)
             print(Fore.GREEN + Style.BRIGHT + "----- File Found! | Here is your data -----" + Style.RESET_ALL)
             print()
             print(data)
             dataHandling()
+            return data
 
         
         except ValueError:
