@@ -10,10 +10,6 @@ def calc(data, col):
     print()
     print(Fore.BLUE + Style.BRIGHT + "What calculations would you like to do?" + Style.RESET_ALL)
     print()
-    print(Fore.BLUE + Style.BRIGHT + "----- " + col + " -----" + Style.RESET_ALL)
-    print()
-    print(newCol)
-    print()
     print(Fore.MAGENTA + Style.BRIGHT + "Mean" + "   Median" + "   Standard Deviation" + "   Find Minimum Value" + "   Find Maximum Value" + "   Count missing values" + Style.RESET_ALL)
     print()
     step = input(Fore.BLUE + Style.BRIGHT + "Select an Option: " + Style.RESET_ALL)
@@ -54,12 +50,13 @@ def calc(data, col):
 
     if step == "count" or step == "Count" or step == "Count missing values" or step == "Count Missing Values" or step == "count missing values":
         nanCount = 0
+        
 
-        for num in col:
-            if np.isnan == True:
-                nanCount += 1
-            else:
+        for num in newCol:
+            if np.isnan(num) == False:
                 pass
+            else:
+                nanCount += 1
 
         print(Fore.BLUE + Style.BRIGHT + "The amount of nan values in this column is " + str(nanCount) + Style.RESET_ALL)
         time.sleep(2)
