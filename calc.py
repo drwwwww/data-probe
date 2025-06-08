@@ -64,5 +64,15 @@ def calc(data, col):
 
 def analyze(data, col):
     newCol = data[col]
-
+    print()
+    print(Fore.RED + Style.BRIGHT + "----- Analytics of " + col + " -----" + Style.RESET_ALL)
+    print()
+    print(newCol)
+    print()
+    print(Fore.RED + Style.BRIGHT + "Data Type: " + str(newCol.dtype))
+    print()
+    print(Fore.RED + Style.BRIGHT + "Number of Unique values: " + str(newCol.nunique()))
+    print()
+    print(Fore.RED + Style.BRIGHT + "Top 5 Most Frequent Values: " + str(newCol.value_counts().head(5)))
+    
 

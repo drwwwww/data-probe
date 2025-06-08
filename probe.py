@@ -6,8 +6,28 @@ import time
 import sys
 import calc
 
-def analyze():
-    pass
+def analyzeMenu():
+    print(Fore.RED + Style.BRIGHT + "----- Analyze a Column -----" + Style.RESET_ALL)
+    print()
+    
+    for name in data.columns:
+        print(Fore.MAGENTA + Style.BRIGHT + name + Style.RESET_ALL)
+
+    print()
+    col = input(Fore.RED + Style.BRIGHT + "Which column would you like to analyze?: " + Style.RESET_ALL)
+
+    if col == "/end":
+        sys.exit()
+    
+    if col not in data.columns:
+        print()
+        print(Fore.RED + Style.BRIGHT + "Please Select a Valid Column" + Style.RESET_ALL)
+        print()
+        time.sleep(0.5)
+        analyzeMenu()
+    
+    else:
+        calc.analyze(data, col)
 
 
 def calcnum():
@@ -60,7 +80,7 @@ def dataHandling():
 
     elif step == "Analyze a Column" or step == "analyze a column" or step == "analyze" or step == "2":
         print()
-        analyze()
+        analyzeMenu()
 
     else:
         print()
