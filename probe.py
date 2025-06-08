@@ -6,6 +6,10 @@ import time
 import sys
 import calc
 
+def analyze():
+    pass
+
+
 def calcnum():
     print(Fore.BLUE + Style.BRIGHT + "----- Calculate Numeric Columns -----" + Style.RESET_ALL)
     print()
@@ -53,6 +57,10 @@ def dataHandling():
     elif step == "Calculate Numeric Columns" or step == "calculate numeric columns" or step == "calculate" or step == "1":
         print()
         calcnum()
+
+    elif step == "Analyze a Column" or step == "analyze a column" or step == "analyze" or step == "2":
+        print()
+        analyze()
 
     else:
         print()

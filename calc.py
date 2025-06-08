@@ -62,4 +62,7 @@ def calc(data, col):
         time.sleep(2)
         calc(data, col)
 
+def analyze(data, col):
+    newCol = data[col]
+
 
