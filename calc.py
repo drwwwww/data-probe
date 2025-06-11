@@ -74,5 +74,9 @@ def analyze(data, col):
     print(Fore.RED + Style.BRIGHT + "Number of Unique values: " + str(newCol.nunique()))
     print()
     print(Fore.RED + Style.BRIGHT + "Top 5 Most Frequent Values: " + str(newCol.value_counts().head(5)))
-    
+    return
+
+def clean(data, col):
+    newData = data.dropna()
+    newData.to_csv('myData.csv', index=False)
 
